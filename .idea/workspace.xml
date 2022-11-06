@@ -4,7 +4,20 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1f294efc-f3ba-41b4-99b9-a899c640f357" name="Changes" comment="" />
+    <list default="true" id="1f294efc-f3ba-41b4-99b9-a899c640f357" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/game/Game.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Deck.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/game/Deck.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Game.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/game/Player.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/cards/Card.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/cards/Card.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/cards/Suit.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/cards/Suit.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/example/Deck.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/example/Game.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/example/Player.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/example/cards/Card.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/example/cards/Card.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/example/cards/Suit.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/example/cards/Suit.class" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
