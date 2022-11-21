@@ -3,14 +3,16 @@ package org.example.cards;
 public record Card(Suit suit, Rank rank) {
 
     public String getNameOfCard() {
-        return rank.getUiValue() + " of " + suit.getUiString();
+        return rank.getUiValue() + suit.getUiString();
     }
 
     public int getPointsCard() {
-        if (suit.getValue() == 0) {
+        if (suit.getUiString().equals("\u2665") ) {
             return 1;
-        } else if (suit.getValue() == 1 && rank.getValue() == 10) {
+        } else if (suit.getUiString().equals("\u2660") && rank.getUiValue().equals("Q")) {
             return 13;
-        } else return 0;
+        }
+        return 0;
     }
+
 }

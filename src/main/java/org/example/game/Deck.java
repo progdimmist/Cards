@@ -9,8 +9,7 @@ import java.util.Collections;
 import java.util.List;
 
 public class Deck {
-
-    private static final List<Card> cards = new ArrayList<>();
+    static final List<Card> cards = new ArrayList<>();
 
     public Deck() {
         init();
@@ -24,39 +23,10 @@ public class Deck {
         }
         Collections.shuffle(cards);
     }
-
-    public Card getCard(int i) {
-        return cards.get(i);
-    }
-
     public Card getNextCard() {
         if (cards.isEmpty()) {
             return null;
         }
         return cards.remove(0);
     }
-
-    public static void addInDeck(Card card) {
-        cards.add(card);
-    }
-
-    public void showCardsInDeckPlayer(int firstIndexPlayer, List<Player> players) {
-        System.out.print("\nDiscarded cards: ");
-
-            for (int i = 0; i < cards.size(); i++) {
-                if (i != cards.size() - 1) System.out.print((firstIndexPlayer + 1) + " player threw «" +cards.get(i).getNameOfCard()+ "»; ");
-                else System.out.print((firstIndexPlayer + 1) + " player threw «" + cards.get(i).getNameOfCard() + "» ");
-
-
-            firstIndexPlayer++;
-            if (firstIndexPlayer == players.size()) {
-                firstIndexPlayer = 0;
-            }
-        }
-    }
-
-    public int getSizeOfDeck() {
-        return cards.size();
-    }
-
 }

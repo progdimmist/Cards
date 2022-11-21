@@ -1,10 +1,10 @@
 package org.example.cards;
 
 public enum Suit {
-    HEARTS(0, "hearts"),
-    SPADES(1, "spades"),
-    DIAMONDS(2, "diamonds"),
-    CLUBS(3, "clubs");
+    HEARTS(0, "\u2665"),
+    SPADES(1, "\u2660"),
+    DIAMONDS(2, "\u2666"),
+    CLUBS(3, "\u2663");
     private final String uiString;
     private final int value;
 

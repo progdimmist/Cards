@@ -1,19 +1,19 @@
 package org.example.cards;
 
 public enum Rank {
-    TWO(0, "two"),
-    THREE(1, "three"),
-    FOUR(2, "four"),
-    FIVE(3, "five"),
-    SIX(4, "six"),
-    SEVEN(5, "seven"),
-    EIGHT(6, "eight"),
-    NINE(7, "nine"),
-    TEN(8, "ten"),
-    JACK(9, "jack"),
-    QUEEN(10, "queen"),
-    KING(11, "king"),
-    ACE(12, "ace");
+    TWO(0, "2"),
+    THREE(1, "3"),
+    FOUR(2, "4"),
+    FIVE(3, "5"),
+    SIX(4, "6"),
+    SEVEN(5, "7"),
+    EIGHT(6, "8"),
+    NINE(7, "9"),
+    TEN(8, "10"),
+    JACK(9, "J"),
+    QUEEN(10, "Q"),
+    KING(11, "K"),
+    ACE(12, "A");
 
     private final int value;
     private final String uiValue;

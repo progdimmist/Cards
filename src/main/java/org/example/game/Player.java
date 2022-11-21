@@ -1,6 +1,8 @@
 package org.example.game;
 
 import org.example.cards.Card;
+import org.example.cards.Rank;
+import org.example.cards.Suit;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -8,46 +10,30 @@ import java.util.List;
 
 public class Player {
 
-    private static int nextId = 1;
-
-    private int id;
     private final List<Card> cards;
     private final List<Card> takenCards;
 
-    public boolean isTwoClubs = false;
 
     public Player(Deck deck) {
-        this.setId();
         cards = new ArrayList<>();
         takenCards = new ArrayList<>();
         for (int i = 0; i < 13; i++) {
             cards.add(deck.getNextCard());
-            if (cards.get(i).suit().getValue() == 3 && cards.get(i).rank().getValue() == 0) {
-                isTwoClubs = true;
-            }
         }
     }
 
-    void setId() {
-        id = nextId;
-        nextId++;
-        if (nextId == 5) {
-            nextId = 1;
-        }
-    }
-
-    int getId() {
-        return id;
-    }
 
     int getSuitThisIndex(int index) {
         return cards.get(index).suit().getValue();
     }
 
+    boolean isTwoClubs(){
+        return cards.contains(new Card(Suit.CLUBS, Rank.TWO));
+    }
     public int indexTwoClubs() {
         int index = 0;
-        for (int i = 0; i < 13; i++) {
-            if (cards.get(i).suit().getValue() == 3 && cards.get(i).rank().getValue() == 0) {
+        for (int i = 0; i < cards.size(); i++) {
+            if (cards.get(i).suit().getUiString().equals("\u2663") && cards.get(i).rank().getUiValue().equals("2")) {
                 index = i;
             }
         }
@@ -55,33 +41,35 @@ public class Player {
     }
 
     void deletePlayerCard(int index) {
-        Deck.addInDeck(cards.get(index));
+        addInDeck(cards.get(index));
         cards.remove(index);
     }
 
-    void addPlayerCardFromDeckWithIndexOne(Deck deck) {
-        cards.add(deck.getNextCard());
+    public void addInDeck(Card card) {
+        Table.cards.add(card);
     }
 
-    void addTakenCard(Deck deck) {
+    void addPlayerCardFromDeckWithIndexOne(Table table) {
+        cards.add(table.getNextCard());
+    }
+
+    void addTakenCard(Table table) {
         for (int i = 0; i < 4; i++) {
-            takenCards.add(deck.getNextCard());
+            takenCards.add(table.getNextCard());
         }
     }
 
-    void showCardsInHand() {
-        System.out.print("\nCards of player #" + this.getId() + ": ");
+    void showCardsInHand(int id) {
+        System.out.print("\nCards of player #" + (id+1) + ": ");
         for (int i = 0; i < cards.size(); i++) {
-            if (i != cards.size() - 1) System.out.print(cards.get(i).getNameOfCard() + "; ");
-            else System.out.print(cards.get(i).getNameOfCard());
+            System.out.print((i == 0 ? "" : "; ") + cards.get(i).getNameOfCard());
         }
     }
 
-    void showTakenCardsInHand() {
-        System.out.print("\nTaken cards of player #" + this.getId() + ": ");
+    void showTakenCardsInHand(int id) {
+        System.out.print("\nTaken cards of player #" + (id+1) + ": ");
         for (int i = 0; i < takenCards.size(); i++) {
-            if (i != takenCards.size() - 1) System.out.print(takenCards.get(i).getNameOfCard() + "; ");
-            else System.out.print(takenCards.get(i).getNameOfCard());
+            System.out.print((i == 0 ? "" : "; ") + takenCards.get(i).getNameOfCard());
         }
     }
 
@@ -113,7 +101,7 @@ public class Player {
         return maxCard;
     }
 
-    int getIndexMinCardThisSuitOrMaxCardAnotherSuit(int suit) {
+    int getIndexCardForMove(int suit) {//min card this suit or max card other suit
         int minValue = 20;
         int minIndex = -1;
         for (int i = 0; i < cards.size(); i++) {
